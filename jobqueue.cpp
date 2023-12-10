@@ -6,8 +6,8 @@ class Queue
 {
     public:
         int arr[max];
-        int start=-1;
-        int end=-1;
+        int front=-1;
+        int rear=-1;
         
         void enqueue(int x);
         int dequeue();
@@ -16,32 +16,32 @@ class Queue
 
 void Queue::enqueue(int x)
 {
-    if (end==max-1)
+    if (rear==max-1)
     {
         cout<<"Queue Full!";
         return;
     }
-    arr[++end]=x;
+    arr[++rear]=x;
 }
 
 int Queue::dequeue()
 {
-    if (start==end)
+    if (front==rear)
     {
         cout<<"Queue Empty!";
     }
-    return arr[++start];
+    return arr[++front];
 }
 
 void Queue::display()
 {
-    if (start==end)
+    if (front==rear)
     {
         cout<<"Queue Empty!";
         return;
     }
     cout<<"Job Queue: ";
-    for(int i=start+1; i<=end; i++)
+    for(int i=front+1; i<=rear; i++)
     {
         cout<<arr[i]<<" ";
     }
