@@ -11,7 +11,6 @@ public:
     int top = -1;
     void push(char);
     char pop();
-    bool isFull();
     bool isEmpty();
 };
 
@@ -28,6 +27,10 @@ char StackExp::pop() {
         return '\0';  // Return some default value indicating an error or an empty stack
     }
     return arr[top--];
+}
+
+bool StackExp::isEmpty() {
+    return top == -1;
 }
 
 int main() {
