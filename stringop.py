@@ -37,6 +37,18 @@ def substr(mainstr, sub):
         if flag:
             res.append(i)
     print(sub, "found at", res)
+
+def occurence(str):
+    txt=[]
+    txt=str.split()
+    c = {}
+    
+    for i in txt:
+        if i in c:
+            c[i]+=1
+        else:
+            c[i]=1
+    print("The number of occurences of each word in the string are : ",c)
     
 
 lst="I know three programming languages."
