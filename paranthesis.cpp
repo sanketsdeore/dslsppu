@@ -3,12 +3,12 @@
 
 using namespace std;
 
-#define size 20
+#define max 20 // Changed size to max
 
 class StackExp {
 private:
     int top;
-    char stk[size];
+    char stk[max];
 
 public:
     StackExp() : top(-1) {}
@@ -40,7 +40,7 @@ char StackExp::pop() {
 }
 
 bool StackExp::isFull() {
-    return top == size - 1;
+    return top == max - 1;
 }
 
 bool StackExp::isEmpty() {
