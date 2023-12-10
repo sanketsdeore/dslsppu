@@ -30,14 +30,6 @@ char StackExp::pop() {
     return arr[top--];
 }
 
-bool StackExp::isFull() {
-    return top == max - 1;
-}
-
-bool StackExp::isEmpty() {
-    return top == -1;
-}
-
 int main() {
     StackExp s1;
     string exp;
@@ -46,7 +38,7 @@ int main() {
     cout << "\nEnter the expression to check whether it is well-formed or not: ";
     cin >> exp;
 
-    for (size_t i = 0; i < exp.length(); ++i) {
+    for (int i = 0; i < exp.size(); ++i) {
         char c = exp[i];
         switch (c) {
             case '(':
@@ -55,19 +47,19 @@ int main() {
                 s1.push(c);
                 break;
             case ')':
-                if (s1.isEmpty() || s1.pop() != '(') {
+                if (s1.pop() != '(') {
                     cout << "\nSorry !!! Invalid Expression or not well-parenthesized....\n";
                     return 0;
                 }
                 break;
             case ']':
-                if (s1.isEmpty() || s1.pop() != '[') {
+                if (s1.pop() != '[') {
                     cout << "\nSorry !!! Invalid Expression or not well-parenthesized....\n";
                     return 0;
                 }
                 break;
             case '}':
-                if (s1.isEmpty() || s1.pop() != '{') {
+                if (s1.pop() != '{') {
                     cout << "\nSorry !!! Invalid Expression or not well-parenthesized....\n";
                     return 0;
                 }
