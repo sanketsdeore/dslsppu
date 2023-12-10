@@ -3,16 +3,12 @@
 
 using namespace std;
 
-#define max 20 // Changed size to max
+#define max 20
 
 class StackExp {
-private:
-    int top;
-    char stk[max];
-
 public:
-    StackExp() : top(-1) {}
-
+    char arr[max];
+    int top = -1;
     void push(char);
     char pop();
     bool isFull();
@@ -20,23 +16,18 @@ public:
 };
 
 void StackExp::push(char x) {
-    if (!isFull()) {
-        top++;
-        stk[top] = x;
-    } else {
-        cout << "Stack is full. Cannot push element.\n";
+    if (top == max - 1) {
+        cout << "Stack full!";
     }
+    arr[++top] = x;
 }
 
 char StackExp::pop() {
-    if (!isEmpty()) {
-        char s = stk[top];
-        top--;
-        return s;
-    } else {
-        cout << "Stack is empty. Cannot pop element.\n";
-        return '\0'; // You may want to handle this differently based on your requirements
+    if (top == -1) {
+        cout << "Stack empty!";
+        return '\0';  // Return some default value indicating an error or an empty stack
     }
+    return arr[top--];
 }
 
 bool StackExp::isFull() {
